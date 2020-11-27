@@ -33,6 +33,7 @@ internet connection but the main working platform is through browsers. In the fu
 integration of the application to mobile devices.
 Our application needs to integrate with third-party payment applications such as Visa, PayPal, MasterCard etc.
 
+Detailed video link : [link to YOUTUBE!](https://www.youtube.com/watch?v=VEFMUZDDbvw)
 
 ![Image of Dart](https://github.com/erenozger/KaBookStore/blob/main/ProjectImages/HomePage.png)
 
