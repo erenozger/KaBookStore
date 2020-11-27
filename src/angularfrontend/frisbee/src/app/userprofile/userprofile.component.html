@@ -1,0 +1,56 @@
+<mat-card style="margin-top: 2%; margin-right: 10%;">
+
+    <mat-card-header>
+        <mat-card-title>Hello {{this.current_user.first_name}} {{this.current_user.last_name}}!</mat-card-title>
+        <mat-card-subtitle><br><br>Here are your informations.<br>Do you think this information<br>is not yours? Please
+            press edit button<br>to edit.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content fxFlex="Right" style="margin-left: 7%;">
+        <mat-tab-group>
+            <mat-tab label="Personal">
+                <p style="margin-top: 3%;"><b>First Name: </b> {{this.current_user.first_name}}</p>
+                <p><b>Last Name: </b> {{this.current_user.last_name}}</p>
+                <p><b>Gender: </b> {{this.current_user.gender.charAt(0).toUpperCase() + this.current_user.gender.slice(1)}}</p>
+                <p><b>Birthday: </b> {{this.current_user.birth_date | date: 'dd/MM/yyyy'}}</p>
+                <p><b>E-mail: </b> {{this.current_user.email}}</p>
+                <p><b>GSM: </b> {{this.gsm_formatted}}</p>
+                <p *ngIf="this.current_user.address != '' "><b>Address: </b> {{this.current_user.address}}</p>
+                <p *ngIf="this.current_user.address == '' "><b>Address: </b> Address is not provided</p>
+                
+                <button style="margin-left: 80%; margin-bottom: 3%;" mat-raised-button (click)="editPersonal()" color="primary">Edit</button>     
+            </mat-tab>
+            
+            <mat-tab label="Payment">
+                <p style="margin-top: 3%;" *ngIf="this.payment_method == null" >Payment Method is not provided.</p>
+                <div *ngIf="this.payment_method != null" >
+                    <p style="margin-top: 3%;" ><b>Payment Name: </b>{{this.payment_method.payment_name}}</p>
+                    <p><b>Card Holder: </b>{{this.payment_method.card_holder}}</p>
+                    <p><b>CCN: </b>{{formatCCN(this.payment_method.ccn)}}</p>
+                    <p><b>CVC: </b>***</p>
+                    <p><b>Validation Date: </b>{{this.payment_method.validation_date | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                
+                <div class="col-sm-12" >
+                    <button *ngIf="this.payment_method != null" [swal]="deleteSwal" style="margin-left: 80%; margin-bottom: 3%;" (confirm)="deletePaymentMethod()" mat-raised-button  color="warn">Delete Payment Method</button>     
+                    <button *ngIf="this.payment_method != null" style="margin-left: 80%; margin-bottom: 3%;" (click)="editPaymentMethod()" mat-raised-button  color="primary">Edit Payment Method</button>     
+                    <swal
+                        #deleteSwal
+                        title="Are you sure?"
+                        text="This action can not be undone!"
+                        type="question"
+                        [showCancelButton]="true"
+                        [focusCancel]="true">
+                    </swal>
+                </div>
+
+                <button *ngIf="this.payment_method == null" style="margin-left: 80%; margin-bottom: 3%;" (click)="addPaymentMethod()" mat-raised-button  color="primary">Add Payment Method</button>     
+            </mat-tab>
+
+
+        </mat-tab-group>
+
+    </mat-card-content>
+
+
+</mat-card>

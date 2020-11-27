@@ -1,0 +1,40 @@
+<div class="table-responsive" >
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Cargo Company</th>
+          <th>              </th>
+          
+        </tr>
+      </thead>
+      <tbody *ngFor = "let orderdetail of orderdetails">
+        
+        <tr>
+          <td>{{orderdetail.order_date}}</td>
+          <td>{{orderdetail.cargo_company}}</td>
+          <td>
+            <button type="button" style="margin-right: 4%;" class="btn btn-outline-success" *ngIf = "orderdetail.is_confirmed == 0" [swal]="confirmSwal" (confirm)="confirmOrder(orderdetail.order_id)">Confirm</button>  
+                        <swal
+                        #confirmSwal
+                        title="Are you sure?"
+                        text="Order will be confirmed!"
+                        type="question"
+                        [showCancelButton]="true"
+                        [focusCancel]="true">
+                        </swal>
+            <button type="button" class="btn btn-outline-danger" [swal]="deleteSwal" (confirm)="deleteOrder(orderdetail.order_id)">Delete</button>              
+            <swal
+              #deleteSwal
+              title="Are you sure?"
+              text="This action can not be undone!"
+              type="question"
+              [showCancelButton]="true"
+              [focusCancel]="true">
+            </swal>
+          </td>
+        </tr>
+      
+      </tbody>
+    </table>
+  </div>

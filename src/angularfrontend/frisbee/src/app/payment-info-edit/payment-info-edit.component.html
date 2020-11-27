@@ -1,0 +1,45 @@
+<div [formGroup]="editForm" fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="Right">
+        <form method="POST" [formGroup]="editForm" (ngSubmit)="submitEditPayment()" fxLayoutAlign="stretch"fxLayout="column">
+            
+            <input type="hidden" formControlName="user_id" value="this.current_user.user_id">
+            <input type="hidden" formControlName="payment_id" value="this.payment_method.payment_id">
+
+            <mat-form-field >
+                <mat-label>
+                    Payment Name
+                </mat-label>
+                <input matInput id="payment_name" formControlName="payment_name" type="text">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Card Holder</mat-label>
+                <input matInput id="card_holder" formControlName="card_holder"  placeholder="Ex: John Williams" type="text">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>
+                    Credit Card Number (CCN)
+                </mat-label>
+                <input matInput formControlName="CCN" type="text" placeholder="16 Digit Numeric">
+            </mat-form-field>
+            
+            <mat-form-field>
+                <mat-label>CVC</mat-label>
+                <input matInput id="CVC" formControlName="CVC" type="password" placeholder="3 Digit Numeric">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Validation Date</mat-label>
+                <input id="validation_date" formControlName="validation_date" matInput [matDatepicker]="picker" >
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker  #picker startView="year"></mat-datepicker>
+            </mat-form-field>
+
+            <small style="opacity: 0.4;">It is responsibility of you to ensure payment method is valid.</small>
+            <small style="opacity: 0.4;">All fields in this form should be filled.</small>
+            <button (confirm)="submitEditPayment()" mat-raised-button [disabled]="editForm.invalid" type="submit">Edit</button>
+        </form>
+
+    </mat-card>
+</div>

@@ -1,0 +1,74 @@
+<form [formGroup]="addbookform" (ngSubmit)="add()" >
+    <div class="col-md-5">
+            <div class="form-group">
+              <label for="title">Book Title</label>
+              <input type="text" id="title" name="title" formControlName="title" class="form-control" placeholder="Fill The Blank">
+            <div class="alert alert-danger" *ngIf="addbookform.get('title').hasError('required') && addbookform.get('title').touched">Blank can not be empty</div>
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input type="text" class="form-control" id="author" name="author" formControlName="author" placeholder="Fill The Blank">
+              <div class="alert alert-danger" *ngIf="addbookform.get('author').hasError('required') && addbookform.get('author').touched">Blank can not be empty</div>
+            </div>
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" class="form-control" id="category" name="category" formControlName="category" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('category').hasError('required') && addbookform.get('category').touched">Blank can not be empty</div>
+            </div>
+              <div class="form-group">
+                <label for="summary">Summary</label>
+                <input type="text" class="form-control" id="summary" name="summary" formControlName="summary" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('summary').hasError('required') && addbookform.get('summary').touched">Blank can not be empty</div>
+
+              </div>
+              <div class="form-group">
+                <label for="publisher">Publisher</label>
+                <input type="text" class="form-control" id="publisher" name="publisher" formControlName="publisher" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('publisher').hasError('required') && addbookform.get('publisher').touched">Blank can not be empty</div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number"  step="0.10" min="0" max="99999" class="form-control" id="price" name="price" formControlName="price" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('price').hasError('required') && addbookform.get('price').touched">Blank can not be empty</div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="publish_date">Publish Date</label>
+                <input type="date" class="form-control" id="publish_date" name="publish_date" formControlName="publish_date" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('publish_date').hasError('required') && addbookform.get('publish_date').touched">Blank can not be empty</div>
+
+            </div>
+
+              <div class="form-group">
+                <label for="language">Language</label>
+                <input type="text" class="form-control" id="language" name="language" formControlName="language" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('language').hasError('required') && addbookform.get('language').touched">Blank can not be empty</div>
+
+            </div>
+              <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" min="0" max="999999" oninput="this.value=this.value.replace(/[^0-9]/g,'')" class="form-control" id="stock" name="stock" formControlName="stock" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('stock').hasError('required') && addbookform.get('stock').touched">Blank can not be empty</div>
+
+            </div>
+              <div class="form-group">
+                <label for="type">Type</label>
+                <input type="text" class="form-control" id="type" name="type" formControlName="type" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('type').hasError('required') && addbookform.get('type').touched">Blank can not be empty</div>
+
+            </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input type="text" class="form-control" id="image" name="image" formControlName="image" placeholder="Fill The Blank">
+                <div class="alert alert-danger" *ngIf="addbookform.get('image').hasError('required') && addbookform.get('image').touched">Blank can not be empty</div>
+
+            </div>
+              
+            <button class="btn btn-primary" [swal]="['Good job!', 'Good job! You successfully added a book', 'success']" (confirm)="add()" [disabled]="addbookform.invalid">ADD</button>
+            
+        </div>
+
+</form>

@@ -1,0 +1,55 @@
+<h1>Shopping Cart</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Items</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let book of books">
+    <tr>
+      <td><img src="{{book.image}}" width="100px"></td>
+      <td>{{book.title}}</td>
+      <td>{{book.price}}</td>
+      <td>{{getValue(book.book_id)}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteBookfromCart(book)">Delete</button>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+<div class="col-md-2"></div>
+<form #paymentform="ngForm">
+<div class="row">
+  <div class="form-group">
+    <label for="cargoSelect">Select Cargo</label>
+    <select class="form-control" id="cargoSelect" name = "cargono" [(ngModel)]="cargonumber">
+      <option>X Cargo</option>
+      <option>Y Cargo</option>
+      <option>Z Cargo</option>
+    </select>
+    <label for="paymentSelect">Select Your Payment Method</label>
+    <select class="form-control" id="paymentSelect" name= "paymentselection" [(ngModel)]="paymentmethod">
+      <option>CreditCard</option>
+      <option>Cash</option>
+    </select>
+    <div class="form-group">
+      <label>Give a Valid Coupon</label>
+      <input type="text" id="couponnumber" name= "couponno" [(ngModel)]="couponnumber" class="form-control">
+      <p class="alert alert-danger" *ngIf="valid===0">THIS COUPON IS INVALID</p>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+  <div><br><br>
+    <a>Total Price : {{totalprice}} $</a><br>
+    <button mat-raised-button type="button" class="btn btn-primary" (click)="Payment()">PURCHASE</button>
+  </div>
+</div>
+</form>
+
+{{paymentform.value | json}}

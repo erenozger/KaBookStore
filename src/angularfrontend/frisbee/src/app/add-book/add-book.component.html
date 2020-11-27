@@ -1,0 +1,51 @@
+<div class="col-md-5">
+<form>
+    <div class="form-group">
+      <label for="book_title">Book Title</label>
+      <input type="text" class="form-control" id="book_title">
+    </div>
+    <div class="form-group">
+      <label for="book_author">Author</label>
+      <input type="text" class="form-control" id="book_author">
+    </div>
+    <div class="form-group">
+        <label for="book_category">Category</label>
+        <input type="text" class="form-control" id="book_category">
+      </div>
+      <div class="form-group">
+        <label for="book_summary">Summary</label>
+        <input type="text" class="form-control" id="book_summary">
+      </div>
+      <div class="form-group">
+        <label for="book_publisher">Publisher</label>
+        <input type="text" class="form-control" id="book_publisher">
+      </div>
+      <div class="form-group">
+        <label for="book_language">Language</label>
+        <input type="text" class="form-control" id="book_language">
+      </div>
+      <div class="form-group">
+        <label for="book_stock">Stock</label>
+        <input type="text" class="form-control" id="book_stock">
+      </div>
+      <div class="form-group">
+        <label for="book_type">Type</label>
+        <input type="text" class="form-control" id="book_type">
+      </div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="book_image">Upload</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="browsefile"
+            aria-describedby="book_image">
+          <label class="custom-file-label" for="browsefile">Choose file</label>
+        </div>
+      </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="book_check">
+      <label class="form-check-label" for="exampleCheck1">CheckBox</label>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="AddBook()">ADD</button>
+  </form>
+</div>

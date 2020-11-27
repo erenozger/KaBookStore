@@ -1,0 +1,85 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+    <main class="container pt-5">
+        <div class="card mb-5">
+            <div class="card-header">User Reports</div>
+            <div class="card-block p-0">
+                <table class="table table-bordered table-sm m-0">
+                    <thead class="">
+                        <tr>
+                            <th>Pending Reports</th>
+                            <th>Comment ID</th>
+                            <th>Comment Text</th>
+                            <th>Total Reports</th>
+                            <th>Sexual Reports</th>
+                            <th>Violent or Repulsive Reports</th>
+                            <th>Hateful or Abusive Reports</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let reported_comments of reported_CommentsList">
+                            <!--<td>
+                                <label class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                </label>
+                            </td>-->
+                            <td>
+                                <button [swal]="controlSwal1"  (confirm)="deleteReports(reported_comments)" class="btn2"><i class="fa fa-check"></i></button>&nbsp;&nbsp;&nbsp;
+                                <button [swal]="controlSwal2"  (confirm)="deleteComment(reported_comments)"  class="btn"><i class="fa fa-trash"></i></button>
+                                <swal
+                                    #controlSwal1
+                                    title="Do you want to delete this reports?"
+                                    text="The comment has been approved, reports are being deleted."
+                                    type="question"
+                                    icon="success"
+                                    [showCancelButton]="true" 
+                                    [focusCancel]="true">
+                                </swal>  
+                                <swal
+                                    #controlSwal2
+                                    title="Do you want to delete this comment?"
+                                    text="You found it to be a problem and you delete the comment from the system"
+                                    type="question"
+                                    icon="warning"
+                                    [showCancelButton]="true" 
+                                    [focusCancel]="true">
+                                </swal>                                                  
+                            </td>
+                            
+                            <td>{{reported_comments.comment_id}}</td>
+                            <td>{{reported_comments.comment_text}}</td>
+                            <td class="table-danger" style="text-align:center;" >{{reported_comments.report_count}}</td>
+                            <td style="text-align:center;">{{reported_comments.report_1}}</td>
+                            <td style="text-align:center;">{{reported_comments.report_2}}</td>
+                            <td style="text-align:center;">{{reported_comments.report_3}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer p-0">
+                <nav aria-label="...">
+                    <ul class="pagination justify-content-end mt-3 mr-3">
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                        <li class="page-item active">
+                            <span class="page-link">1<span class="sr-only">(current)</span>
+                            </span>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="/admin-reports">2</a></li>
+                        <li class="page-item"><a class="page-link" href="/admin-reports">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="/admin-reports">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        
+           
+    </main>

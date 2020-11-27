@@ -1,0 +1,25 @@
+<mat-card style="margin-top: 2%; margin-right: 10%;">
+
+    <mat-card-header>
+        <mat-card-title>Hello {{this.current_user.first_name}} {{this.current_user.last_name}}!</mat-card-title>
+        <mat-card-subtitle><br><br>Here are your informations.<br>Do you think this information<br>is not yours? Please
+            press edit button<br>to edit.</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content fxFlex="Right" style="margin-left: 7%;">
+
+                <p style="margin-top: 7%;"><b>First Name: </b> {{this.current_user.first_name}}</p>
+                <p><b>Last Name: </b> {{this.current_user.last_name}}</p>
+                <p><b>Gender: </b> {{this.current_user.gender.charAt(0).toUpperCase() + this.current_user.gender.slice(1)}}</p>
+                <p><b>Birthday: </b> {{this.current_user.birth_date | date: 'dd/MM/yyyy'}}</p>
+                <p><b>E-mail: </b> {{this.current_user.email}}</p>
+                <p><b>GSM: </b> {{this.gsm_formatted}}</p>
+                <p *ngIf="this.current_user.address != '' "><b>Address: </b> {{this.current_user.address}}</p>
+                <p *ngIf="this.current_user.address == '' "><b>Address: </b> Address is not provided</p>
+                
+                <button style="margin-left: 80%; margin-bottom: 3%;" mat-raised-button (click)="editPersonal()" color="primary">Edit</button>     
+
+    </mat-card-content>
+
+
+</mat-card>

@@ -1,0 +1,84 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container">
+	<link href='https://fonts.googleapis.com/css?family=Grenze' rel='stylesheet'>
+
+
+
+<div class="img-wrap" style="margin-left: 350px;"><img src= "https://i.hizliresim.com/nEBk0n.png"height="250" width="600" class="center"></div>
+<div> 
+    <p></p> 
+
+    <div class="input-group mb-3">
+        <input id = "1" type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button style="margin-top: -1px;" class="btn btn-outline-secondary" type="button" (click) ="filter2()">Search</button>
+        </div>
+      </div>
+      <button style="margin-top: -1px;background-color: white; color: black;border:2px solid black" class="btn btn-outline-secondary" type="button" (click) ="filter3('Adventure')">Adventure</button>
+      <button style="margin-top: -1px;background-color: white; color: black;border:2px solid black" class="btn btn-outline-secondary" type="button" (click) ="filter3('Literature')">Literature</button>
+      <button style="margin-top: -1px;background-color: white; color: black;border:2px solid black" class="btn btn-outline-secondary" type="button" (click) ="filter3('Novel')">Novel</button>
+      <button style="margin-top: -1px;background-color: white; color: black;border:2px solid black" class="btn btn-outline-secondary" type="button" (click) ="filter3('Science')">Science Fiction</button>
+      <button style="margin-top: -1px;background-color: white; color: black;border:2px solid black" class="btn btn-outline-secondary" type="button" (click) ="filter3('Biography')">Biography</button>
+      <button style="margin-top: -1px;background-color: white; color: black;border:2px solid black" class="btn btn-outline-secondary" type="button" (click) ="filter3('Child')">Child Books</button>
+      
+
+    <p></p> 
+<div class="row">
+<div class="col-md-4" *ngFor = "let book of booksfiltered" >
+
+    
+	<figure class="card card-product" (click)="singleBook(book.book_id)" >
+		<div class="img-wrap"><img src= {{book.image}} height="520" width="349" class="center" ></div>
+		<figcaption class="info-wrap">
+            <p></p>            
+				<h1  style="margin-left: 5px; color:whitesmoke;font-size:200%;font-family: 'Grenze'" class="card-title"  >{{book.title}}</h1>
+                <p  style="margin-left: 5px;color: white;;font-family: 'Grenze'" class="card-subtitle mb-2 text-muted">{{book.summary}}</p>
+                <br>
+				<div class="rating-wrap">
+					<div  style="margin-left: 100px;color: white;;font-family: 'Grenze'" class="card-subtitle mb-2 text-muted">Author: {{book.author}}</div>
+					<div  style="margin-left: 100px;color: white;;font-family: 'Grenze'" class="card-subtitle mb-2 text-muted">Catagory: {{book.category}}</div>
+				</div> <!-- rating-wrap.// -->
+        </figcaption>
+        <br>
+		<div class="bottom-wrap">
+			<a class="btn btn-sm btn-primary float-right" style="font-family: 'Grenze'">Add to cart</a>	
+			<div class="price-wrap h2">
+                <span style="margin-left: 5px;font-size:130%;color: green;" class="card-title" >${{book.price}}</span>                
+            </div> <!-- price-wrap.// -->
+            
+		</div> <!-- bottom-wrap.// -->
+    </figure>
+    
+</div> <!-- col // -->
+
+
+
+</div>
+
+
+
+
+
+</div> <!-- row.// -->
+
+
+
+</div> 
+<!--container.//-->
+
+<br><br><br>
+<article class="bg-secondary mb-3">  
+<div class="card-body text-center">
+    <h4 class="text-white">Frisbee@ <br> Best Ecommerce site ever </h4>
+<p class="h5 text-white"> For Everyone</p>   <br>
+<p><a class="btn btn-warning" target="_blank" href="https://i.pinimg.com/originals/81/d7/aa/81d7aa53aa4254f0e8aba32e3847bcf3.jpg"> Let's Have Fun
+ <i class="fa fa-window-restore "></i></a></p>
+</div>
+<br><br><br>
+</article>

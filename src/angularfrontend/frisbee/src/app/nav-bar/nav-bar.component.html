@@ -1,0 +1,70 @@
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  
+  
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/mainpage"><header><i class="fa fa-home fa-3x" aria-hidden="true">
+  </i><p>&nbsp;&nbsp;KaBook Store</p></header> </a>
+  <div class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"></div>
+
+  <!--<div>
+    <div class="dropdown">
+      <button class="dropbtn">Menu</button>
+      <div class="dropdown-content">
+        <a  routerLink="/bookadmin">Products</a>
+        <a routerLink="/admin_order">Orders</a>
+        <a >Customer</a>
+        <a href="#">Reports</a>
+        <a href="#">Integrations</a>
+        <a href="#">Reports</a>
+        <a *ngIf="isLoggedIn()" href="/userprofile/{{this.current_user.user_id}}">Profile</a>
+        <a routerLink="/myorder">MyOrders</a>
+        <a routerLink="/admin_order">Orders</a>
+      </div>
+    </div>
+  </div>-->
+  
+  <div *ngIf = "this.user_login_check == 1 && this.user_type == 'Customer'">
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-user-o" aria-hidden="true"><a > {{this.user_mail}}</a> </i></button>
+      <div class="dropdown-content">
+        <a *ngIf="isLoggedIn()" href="/userprofile"><i class="fa fa-user-circle-o" aria-hidden="true" ></i> My Profile</a>
+        <a routerLink="/shoppingcart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Shopping Cart</a>
+        <a routerLink="/myorder"><i class="fa fa-shopping-bag" aria-hidden="true"></i> My Orders</a>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf = "this.user_login_check == 1 && this.user_type == 'Admin'">
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa fa-user-o" aria-hidden="true"><a> {{this.user_mail}}</a> </i></button>
+      <div class="dropdown-content">
+        <a *ngIf="isLoggedIn()" href="/adminprofile"><i class="fa fa-user-circle-o" aria-hidden="true"></i> My Profile</a>
+        <a routerLink="/bookadmin"><i class="fa fa-book" aria-hidden="true"></i> Products</a>
+        <a routerLink="/addbookform"><i class="fa fa-database" aria-hidden="true"></i> Add product</a>
+        <a routerLink="/admin-order"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Orders</a>
+        <a routerLink="/admin-reports"><i class="fa fa-comments" aria-hidden="true"></i> Reports</a>
+      </div>
+    </div>
+  </div>
+  
+  <ul *ngIf = "this.user_login_check == 1 && this.user_type == 'Customer'" class="navbar-nav px-3">
+    <li class="nav-item">
+      <a *ngIf ="this.shopping_Cart_Count == 0" class="nav-link" routerLink="/shoppingcart"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span class="step0">{{this.shopping_Cart_Count}}</span>ShoppingCart</a>
+      <a *ngIf ="this.shopping_Cart_Count > 0" class="nav-link" routerLink="/shoppingcart"><i class="fa fa-shopping-cart"></i>&nbsp;&nbsp;<span class="step">{{this.shopping_Cart_Count}}</span>ShoppingCart</a>
+    </li>
+  </ul>
+
+  
+  <ul class="navbar-nav px-3">
+    <li *ngIf="isLoggedIn()" class="nav-item text-nowrap">
+      <button mat-raised-button type="submit" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</button>
+    </li>
+    <li *ngIf="!isLoggedIn()" class="nav-item text-nowrap">
+      <button mat-raised-button (click)="openLoginRegisterDialog()"><i class="fa fa-sign-in" aria-hidden="true"></i>  Login or Register!</button>
+    </li>
+
+  </ul>
+  
+</nav>
+
+
+

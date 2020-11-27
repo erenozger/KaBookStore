@@ -1,0 +1,44 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="auto">
+        <form method="POST" [formGroup]="editPersonalForm" (ngSubmit)="submitEditPersonal()" fxLayoutAlign="stretch"
+            fxLayout="column">
+            <mat-form-field>
+                <mat-label>First Name</mat-label>
+                <input matInput id="first_name" formControlName="first_name" type="text">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Last Name</mat-label>
+                <input matInput id="last_name" formControlName="last_name" type="text">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Birthday</mat-label>
+                <input id="birth_date" formControlName="birth_date" matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year"></mat-datepicker>
+            </mat-form-field>
+
+
+            <mat-radio-group color="primary" id="gender" formControlName="gender">
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button style="margin-left: 10%;" value="female">Female</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field>
+                <mat-label>GSM</mat-label>
+                <input placeholder="5XXXXXXXXX" min="5000000000" max="5999999999"
+                    id="gsm" formControlName="gsm" matInput type="number">
+            </mat-form-field>
+
+            <mat-form-field style="width: 300px;">
+                <mat-label>Address</mat-label>
+                <input matInput style="width: 300px;"  id="address" formControlName="address" type="text">
+            </mat-form-field>
+
+            <br>
+
+            <button (confirm)="submitEditPersonal()" mat-raised-button type="submit"> Edit </button>
+        </form>
+    </mat-card>
+</div>

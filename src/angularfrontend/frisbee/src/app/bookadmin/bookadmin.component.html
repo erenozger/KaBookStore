@@ -1,0 +1,62 @@
+<main role="main" class="px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-4 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Available Stock</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <div class="btn-group mr-2">
+          <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/addbookform">Add New Book</button>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+          <span data-feather="calendar"></span>
+          Category
+        </button>
+      </div>
+    </div>
+    <div class="table-responsive" >
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Publisher</th>
+            <th>Type</th>
+            <th>Summary</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>              </th>
+            
+          </tr>
+        </thead>
+        <tbody *ngFor = "let book of books">
+          
+          <tr>
+            <td>{{book.book_id}}</td>
+            <td><button type="button" class="btn btn-outline-success" (click)="singleBook(book.book_id)">{{book.title}}</button></td>
+            <td>{{book.author}}</td>
+            <td>{{book.category}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.type}}</td>
+            <td style="max-width: 5px;overflow: hidden; ">{{book.summary}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.stock}}</td>
+            <td>
+              <button type="button" style="margin-right: 4%;" class="btn btn-outline-success" (click)="editBook(book.book_id)">Edit</button>  
+                          
+              <button type="button" class="btn btn-outline-danger" [swal]="deleteSwal" (confirm)="deleteBook(book)">Delete</button>              
+              <swal
+                #deleteSwal
+                title="Are you sure?"
+                text="This action can not be undone!"
+                type="question"
+                [showCancelButton]="true"
+                [focusCancel]="true">
+              </swal>
+            </td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+        
+  </main>
