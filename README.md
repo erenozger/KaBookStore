@@ -4,6 +4,12 @@ AngularJS -Bootstrap - Java - Spring
 Online book store web application.
 The project is a web application developed using AngularJS and Bootstrap on the frontend and Java Spring MVC on the backend.
 
+Project Members:
+Berkcan ERBOL
+Eren ÖZGER
+Mertcan KOÇER
+H. Batuhan AYDIN
+
 ## Introduction
 ● Online Book Store is a platform which users have capability of reaching and buying books from a
 large variety of products by their own preference. Our project is based on the logic of books being sold by a
